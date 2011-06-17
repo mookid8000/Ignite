@@ -18,7 +18,7 @@ namespace Ignite.Tasks
         {
             var filename = GetFilename();
             Info("Generating default MsBuild script: {0}", filename);
-            File.WriteAllText(filename, @"<Project DefaultTargets=""Build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+            File.WriteAllText(filename, @"<Project DefaultTargets=""build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
   <ItemGroup>
     <AllProjects Include=""..\src\**\*.csproj"" />
   </ItemGroup>
