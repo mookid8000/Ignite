@@ -26,9 +26,21 @@ Global
 EndGlobal
 ";
 
-            var filename = Path.Combine(directory, string.Format("{0}.sln", solutionName));
+            var filename = GetFilename();
             Info("Generating empty VS2010 solution file: {0}", filename);
             File.WriteAllText(filename, slnVs2010, Encoding.UTF8);
+        }
+
+        public override void Cancel()
+        {
+            var filename = GetFilename();
+            Info("Removing empty VS2010 solution file: {0}", filename);
+            File.Delete(filename);
+        }
+
+        string GetFilename()
+        {
+            return Path.Combine(directory, string.Format("{0}.sln", solutionName));
         }
     }
 }

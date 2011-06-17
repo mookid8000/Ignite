@@ -8,6 +8,7 @@ namespace Ignite.Tasks
         public event Action<string> Output = delegate { };
 
         public abstract void Execute();
+        public virtual void Cancel() {}
 
         protected void Info(string message, params object[] objs)
         {

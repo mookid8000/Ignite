@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="Tasks\CreateBuildBatchScripts.cs" />
+    <Compile Include="Tasks\CreateDefaultMsBuildScript.cs" />
+    <Compile Include="Tasks\EnsureFileDoesNotExist.cs" />
     <Compile Include="Exceptions\IgnitionException.cs" />
     <Compile Include="Igniter.cs" />
     <Compile Include="IgnitionArgs.cs" />

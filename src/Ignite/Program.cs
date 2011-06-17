@@ -56,12 +56,26 @@ http://mookid.dk/oncode
 
         static IgnitionArgs ParseArguments(string[] args)
         {
-            if (args.Length != 1)
+            if (args.Length != 2)
             {
-                throw new IgnitionException(@"You need to specify the name of the solution to create.");
+                throw new IgnitionException(@"You need to run ignite.exe like this:
+
+    ignite <directory> <solution_name>
+
+e.g.
+
+    ignite subdir SomeNewProject
+
+or
+
+    ignite . test");
             }
 
-            return new IgnitionArgs{SolutionName = args[0]};
+            return new IgnitionArgs
+                       {
+                           BaseDirectory = args[0],
+                           SolutionName = args[1],
+                       };
         }
     }
 }
