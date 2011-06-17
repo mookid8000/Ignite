@@ -24,12 +24,19 @@ namespace Ignite.Tasks
   </ItemGroup>
 
   <PropertyGroup>
+    <BuildOutputFolder>..\deploy</BuildOutputFolder>
   </PropertyGroup>
 
-  <Target Name=""build"">
+  <Target Name=""build"" DependsOnTargets=""compile_projects;copy_build_output"" />
+
+  <Target Name=""compile_projects"">
     <MSBuild Projects=""@(AllProjects)"" Targets=""build"" StopOnFirstFailure=""true"" Properties=""Configuration=Release"">
       <Output TaskParameter=""TargetOutputs"" ItemName=""BuildOutput"" />
     </MSBuild>
+  </Target>
+
+  <Target Name=""copy_build_output"">
+    <Copy SourceFiles=""@(BuildOutput)"" DestinationFolder=""$(BuildOutputFolder)"" />
   </Target>
 
 </Project>", Encoding.UTF8);

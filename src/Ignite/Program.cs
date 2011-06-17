@@ -56,6 +56,17 @@ http://mookid.dk/oncode
 
         static IgnitionArgs ParseArguments(string[] args)
         {
+            // if only one argument is specified, assume that folder and solution names should be the same
+            if (args.Length == 1)
+            {
+                return new IgnitionArgs
+                           {
+                               BaseDirectory = args[0],
+                               SolutionName = args[0]
+                           };
+            }
+
+            // otherwise, accept only invocation with two arguments
             if (args.Length != 2)
             {
                 throw new IgnitionException(@"You need to run ignite.exe like this:

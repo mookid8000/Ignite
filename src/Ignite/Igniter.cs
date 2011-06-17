@@ -41,6 +41,7 @@ namespace Ignite
                                 new CreateEmptySolutionFile(Path.Combine(currentDirectory, SrcDirName), args.SolutionName),
                                 new CreateDefaultMsBuildScript(Path.Combine(currentDirectory, ScriptsDirName), "build"),
                                 new CreateBuildBatchScripts(currentDirectory, "build"),
+                                new CreateGitIgnoreFile(currentDirectory),
                             };
 
             Array.ForEach(tasks, SetUpSubscriptions);

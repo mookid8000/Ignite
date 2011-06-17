@@ -15,6 +15,11 @@ namespace Ignite.Tasks
             {
                 Fail("Solution names cannot contain space characters!");
             }
+
+            if (solutionName.StartsWith(".") || solutionName.EndsWith("."))
+            {
+                Fail("While a solution name starting or ending with '.' is in fact valid, you should probably avoid names like that.");
+            }
         }
     }
 }
